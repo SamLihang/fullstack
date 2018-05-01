@@ -1,5 +1,5 @@
 import axios from 'axios'
-const host = 'http://localhost:9999/api/goods'
+const host = '/api'
 const ajaxGet = (api, cb) => {
     axios.get(host + api)
       .then(cb)
@@ -8,6 +8,7 @@ const ajaxGet = (api, cb) => {
       })
   }
 const ajaxPost = (api, post, cb) => {
+  console.log('请求：', api, post)
     axios.post(host + api, post)
       .then(cb)
       .catch(err => {
@@ -24,8 +25,16 @@ export const deleteList = (data, cb) => {
 export const getDetail = (data, cb) => {
   ajaxPost(getDetailUrl, data, cb)
 }
+export const login = (data, cb) => {
+  ajaxPost(getLoginUrl, data, cb)
+}
+export const register = (data, cb) => {
+  ajaxPost(getRegisterUrl, data, cb)
+}
 
 
-const getListUrl = '/getList'
-const deleteListUrl = '/deleteList'
-const getDetailUrl = '/getDetail'
+const getListUrl = '/goods/getList'
+const deleteListUrl = '/goods/deleteList'
+const getDetailUrl = '/goods/getDetail'
+const getLoginUrl = '/user/login'
+const getRegisterUrl = '/user/register'

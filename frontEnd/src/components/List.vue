@@ -1,6 +1,7 @@
 <template>
   <div class="main">
-    <h1>List</h1>    
+    <h1>List</h1>  
+    <h5>{{tableData}}</h5>  
   </div>
 </template>
 
@@ -28,7 +29,9 @@ export default {
     }
   },
   created() {
+    console.log(1212121)
     getList(res => {
+      console.log(res)
       this.tableData = res.data
       console.log(res.data)
     })
